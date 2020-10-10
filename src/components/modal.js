@@ -49,28 +49,46 @@ export default function SimpleModal() {
     // setOpenSignIn(false);
   };
 
+  const usernameSet=(obj)=>{
+    setUsername(obj);
+  };
+  const emailSet=(obj)=>{
+    setEmail(obj);
+  };
+  const passwordSet=(obj)=>{
+    setPassword(obj);
+  };
+  const logoutSet=()=>{
+    auth.signOut();
+    setOpen(false);
+    setOpenSignIn(false);
+  }
+
+
        
     const body =open?
-      <ModalBody type="signup" text="Sign up"  onClick={signUp} email={email} password={password} username={username} setusername={setUsername} setPassword={setPassword}  setEmail={setEmail} />
-    :<ModalBody type="signin" text="Sign In" onClick={signIn} email={email} password={password} username setusername setPassword  setEmail   />
+      <ModalBody type="signup" text="Sign up" click={signUp} email={email} password={password} username={username} setusername={usernameSet} setPassword={passwordSet}  setEmail={emailSet} />
+    :<ModalBody type="signin" text="Sign In" click={signIn} email={email} password={password} username setusername={usernameSet} setPassword={passwordSet}  setEmail={emailSet}   />
 
-    const body1=open?
-    <Modal>
-      open={open}
-      onClose={setOpen(true)} 
-      {body}
-    </Modal> :
-    <Modal>
+    const body1=
+     open?
+    <Modal
+      open={open} 
+      onClose={()=>setOpen(false)} 
+      >
+       {body}
+    </Modal>: 
+    <Modal
       open={openSignIn}
-      onClose={setOpenSignIn(true)} 
-      {body}
+      onClose={()=>setOpenSignIn(false)}  >
+       {body} 
     </Modal> 
     
 
   return (
     <div>
       {user?
-    <Button onClick={()=>auth.signOut()}>Log out</Button>
+    <Button onClick={logoutSet}>Log out</Button>
   :(<div className="app_loginContainer">
      <Button onClick={()=>setOpenSignIn(true)}>Sign In</Button>
     <Button onClick={()=>setOpen(true)}>Sign up</Button>

@@ -51,22 +51,22 @@ return(
               placeholder="username"
               type="text"
               value={props.username}
-              onChange={(e)=>props.setUsername(e.target.value)}  />:console.log("Sign up form")
-        
-        };
-           
-           
+              onChange={(e)=>props.setusername(e.target.value)}  />:console.log("Sign up form")
+        }
+         
         <Input 
             placeholder="email"
             type="text"
             value={props.email}
-            onChange={(e)=>props.setEmail(e.target.value)}  />       
+            onChange={(e)=>props.setEmail(e.target.value)}  />   
+            {console.log(props.username)}    
         <Input 
             placeholder="password"
             type="text"
             value={props.password}
             onChange={(e)=>props.setPassword(e.target.value)}  />   
-        <Button type="submit" onClick={props.OnClick} >{props.text}</Button>
+            {console.log(props.username)}
+        <Button type="submit" onClick={(event)=>props.click(event)} >{props.text}</Button>
         </form>
         </div>
       );
