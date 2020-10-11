@@ -5,38 +5,32 @@ import '../css/App.css';
 import {auth} from '../firebaseConfig';
 import ModalBody from './ModalBody';
 import { Button, Input } from '@material-ui/core';
+import {emailAction,usernameAction,passwordAction,openAction,openSignInAction,userAction} from '../actions';
+import {connect} from 'react-redux';
 
-
-export default function SimpleModal() {
-
-  const [open, setOpen] = React.useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = React.useState('');
-  const [username,setUsername] = React.useState('');
-  const [user,setUser]=React.useState(null);
-  const [openSignIn,setOpenSignIn]=useState(false);
+const SimpleModal=(props)=> {
 
   useEffect(()=>{
    const unsubcrcibe= auth.onAuthStateChanged(authUser=>{
       if(authUser){
         console.log(authUser);
-        setUser(authUser);
+        props.userAction(authUser);
 
       }
       else{
-        setUser(null);
+        props.userAction(null);
       }
     });
     return ()=>{
       unsubcrcibe();
     };
-  },[user,username]);
+  },[props.posts.user,props.posts.username]);
 
   const signUp=event=>{
     event.preventDefault();
-    auth.createUserWithEmailAndPassword(email,password)
+    auth.createUserWithEmailAndPassword(props.posts.email,props.posts.password)
     .then(authUser=>{
-      return authUser.user.updateProfile({displayName:username});
+      return authUser.user.updateProfile({displayName:props.posts.username});
     })
     .catch((error)=>alert(error.message));
     // setOpen(false);
@@ -44,57 +38,64 @@ export default function SimpleModal() {
 
   const signIn=event=>{
     event.preventDefault();
-    auth.signInWithEmailAndPassword(email,password)
+    auth.signInWithEmailAndPassword(props.posts.email,props.posts.password)
     .catch((error)=>alert(error.message));
     // setOpenSignIn(false);
   };
 
   const usernameSet=(obj)=>{
-    setUsername(obj);
+    props.usernameAction(obj);
   };
   const emailSet=(obj)=>{
-    setEmail(obj);
+    props.emailAction(obj);
   };
   const passwordSet=(obj)=>{
-    setPassword(obj);
+    props.passwordAction(obj);
   };
   const logoutSet=()=>{
     auth.signOut();
-    setOpen(false);
-    setOpenSignIn(false);
+    props.openAction(false);
+    props.openSignInAction(false);
   }
 
 
        
-    const body =open?
-      <ModalBody type="signup" text="Sign up" click={signUp} email={email} password={password} username={username} setusername={usernameSet} setPassword={passwordSet}  setEmail={emailSet} />
-    :<ModalBody type="signin" text="Sign In" click={signIn} email={email} password={password} username setusername={usernameSet} setPassword={passwordSet}  setEmail={emailSet}   />
+    const body =props.posts.open?
+      <ModalBody type="signup" text="Sign up" click={signUp} emailprop={props.posts.email} passwordprop={props.posts.password} usernameprop={props.posts.username} setusernameprop={usernameSet} setPasswordprop={passwordSet}  setEmailprop={emailSet} />
+    :<ModalBody type="signin" text="Sign In" click={signIn} emailprop={props.posts.email} passwordprop={props.posts.password} usernameprop={props.posts.username} setusernameprop={usernameSet} setPasswordprop={passwordSet}  setEmailprop={emailSet}   />
 
     const body1=
-     open?
+     props.posts.open?
     <Modal
-      open={open} 
-      onClose={()=>setOpen(false)} 
+      open={props.posts.open} 
+      onClose={()=>props.openAction(false)} 
       >
        {body}
     </Modal>: 
     <Modal
-      open={openSignIn}
-      onClose={()=>setOpenSignIn(false)}  >
+      open={props.posts.openSignIn}
+      onClose={()=>props.openSignInAction(false)}  >
        {body} 
     </Modal> 
     
 
   return (
     <div>
-      {user?
+      {props.posts.user?
     <Button onClick={logoutSet}>Log out</Button>
   :(<div className="app_loginContainer">
-     <Button onClick={()=>setOpenSignIn(true)}>Sign In</Button>
-    <Button onClick={()=>setOpen(true)}>Sign up</Button>
+     <Button onClick={()=>props.openSignInAction(true)}>Sign In</Button>
+    <Button onClick={()=>props.openAction(true)}>Sign up</Button>
     {body1}
     </div>)
       }
     </div>
   );
     };
+
+    const mapStatetoProps=(state)=>{
+      return { posts:state }
+    };
+
+
+    export default connect(mapStatetoProps,{emailAction,usernameAction,passwordAction,openAction,openSignInAction,userAction}) (SimpleModal);
