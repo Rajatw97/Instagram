@@ -4,7 +4,11 @@ const initialState={
     username:'',
     password:'',
     user:null,
-    openSignIn:false
+    openSignIn:false,
+    post:[],
+    caption:'',
+    progressbar:0,
+    image:''
 };
 
 export default (state=initialState,action)=>{
@@ -23,6 +27,14 @@ export default (state=initialState,action)=>{
             return  {...state,open:action.payload }  
         case 'opensigninac': 
             return  {...state,openSignIn:action.payload }  
+        case 'postac': 
+            return  {...state,post:action.payload }      
+        case 'captionac': 
+            return  {...state,caption:action.payload }
+        case 'imageac': 
+            return  {...state,image:action.payload }  
+        case 'progressac': 
+            return  {...state,progressbar:action.payload }      
         default: return state
   }
 

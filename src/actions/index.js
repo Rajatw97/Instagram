@@ -45,3 +45,37 @@ export const userAction=(param)=>{
         payload:param
     };
 };
+
+export const postAction=(param)=>{
+
+    return {
+        type:"postac",
+        payload:param
+    };
+
+}
+
+export const captionAction=(param)=>{
+
+    return {
+        type:"captionac",
+        payload:param
+    };
+
+}
+export const imageAction=(param)=>{
+
+    return {
+        type:"imageac",
+        payload:param
+    };
+
+}
+export const progressAction=(param)=>{
+
+    return {
+        type:"progressac",
+        payload:param
+    };
+
+}
