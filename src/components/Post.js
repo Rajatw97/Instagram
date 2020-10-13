@@ -1,6 +1,8 @@
 import React from 'react';
 import '../css/Post.css';
 import Avatar from '@material-ui/core/Avatar';
+import {commentAction} from '../actions';
+import {connect} from 'react-redux';
 
 function Post(props) {
     return (
@@ -17,5 +19,10 @@ function Post(props) {
         </div>
     )
 }
+const mapStateToProps=state=>{
+    return {
+        comments:state.comment
+    }
+};
 
-export default Post;
+export default  connect(mapStateToProps,{commentAction})(Post);

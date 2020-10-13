@@ -79,3 +79,11 @@ export const progressAction=(param)=>{
     };
 
 }
+export const commentAction=(param)=>{
+
+    return {
+        type:"commentac",
+        payload:param
+    };
+
+}

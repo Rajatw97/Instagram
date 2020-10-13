@@ -8,7 +8,8 @@ const initialState={
     post:[],
     caption:'',
     progressbar:0,
-    image:''
+    image:'',
+    comment:[]
 };
 
 export default (state=initialState,action)=>{
@@ -34,7 +35,9 @@ export default (state=initialState,action)=>{
         case 'imageac': 
             return  {...state,image:action.payload }  
         case 'progressac': 
-            return  {...state,progressbar:action.payload }      
+            return  {...state,progressbar:action.payload }     
+        case 'commentac': 
+            return  {...state,comment:action.payload }         
         default: return state
   }
 

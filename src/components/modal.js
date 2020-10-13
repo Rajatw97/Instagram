@@ -82,10 +82,10 @@ const SimpleModal=(props)=> {
   return (
     <div>
       {props.posts.user?
-    <Button onClick={logoutSet}>Log out</Button>
+    <Button  className="button_modal" style={{marginTop:"-50px"}} onClick={logoutSet}>Log out</Button>
   :(<div className="app_loginContainer">
-     <Button onClick={()=>props.openSignInAction(true)}>Sign In</Button>
-    <Button onClick={()=>props.openAction(true)}>Sign up</Button>
+     <Button className="button_modal"  style={{marginTop:"-50px",marginRight:"90px"}} onClick={()=>props.openSignInAction(true)}>Sign In</Button>
+    <Button className="button_modal"  style={{marginTop:"-50px"}}  onClick={()=>props.openAction(true)}>Sign up</Button>
     {body1}
     </div>)
       }

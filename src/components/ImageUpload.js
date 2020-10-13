@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {postAction,progressAction,imageAction,captionAction} from '../actions';
 import {db,storage} from '../firebaseConfig';
 import firebase from 'firebase';
+import '../css/ImageUpload.css';
 
 const ImageUpload=(props)=>{
 
@@ -47,11 +48,11 @@ const ImageUpload=(props)=>{
         });
     };
     return(
-    <div>
-        <progress value={props.posts.progressbar} max="100" />
-        <input type="text" placeholder="Enter a caption" value={props.posts.caption} onChange={event=>props.captionAction(event.target.value)}/>
-        <input type="file" onChange={handleChange} />
-        <Button onClick={handleUpload} > Upload </Button>
+    <div className="imageupload">
+         <progress className="imageupload_progress iuitem" value={props.posts.progressbar} max="100" />
+        <input className="iuitem" style={{maginTop:"15px"}} type="text" placeholder="Enter a caption" value={props.posts.caption} onChange={event=>props.captionAction(event.target.value)}/>
+        <input className="iuitem" type="file" onChange={handleChange} />
+        <Button className="iuitem" onClick={handleUpload} > Upload </Button>
 
     </div>
     );

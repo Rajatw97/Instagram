@@ -1,0 +1,19 @@
+.imageupload{
+    display:flex;
+    flex-direction: column;
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+
+}
+
+.imageupload_progress{
+    width:100%;
+    height:25px;
+   
+}
+.iuitem{
+    margin-bottom:15px;
+}
