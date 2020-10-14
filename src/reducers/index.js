@@ -9,7 +9,8 @@ const initialState={
     caption:'',
     progressbar:0,
     image:'',
-    comment:[]
+    comment:[],
+    singlecomment:''
 };
 
 export default (state=initialState,action)=>{
@@ -36,8 +37,11 @@ export default (state=initialState,action)=>{
             return  {...state,image:action.payload }  
         case 'progressac': 
             return  {...state,progressbar:action.payload }     
-        case 'commentac': 
-            return  {...state,comment:action.payload }         
+        case 'commentac':{ 
+            return  {...state,comment:action.payload }  
+            break;}   
+        case 'singlecommentac': 
+            return  {...state,singlecomment:action.payload }         
         default: return state
   }
 

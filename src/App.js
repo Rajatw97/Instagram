@@ -26,12 +26,11 @@ const App=(props)=>{
               <Modal />
              <div className="all_posts">
                  <div className="posts-left">
-              {console.log(props.posts.post)}
-              
+                          
                  {props.posts.post?(props.posts.post.map(({id,post})=>(
-                <Post key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
-            )
-            )):console.log("psots unavailable")}  
+                <Post key={id} postId={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
+                    )
+                    )):console.log("posts unavailable")}  
             </div>
             <div className="imbed-right">
             <InstagramEmbed

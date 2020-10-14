@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from '@material-ui/core';
 import '../css/App.css';
@@ -31,7 +31,7 @@ function rand() {
   
   
 
-export default (props)=>{
+export default React.forwardRef((props, ref) =>{
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
@@ -71,4 +71,4 @@ return(
         </div>
       );
 
-};
+});

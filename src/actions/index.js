@@ -80,9 +80,16 @@ export const progressAction=(param)=>{
 
 }
 export const commentAction=(param)=>{
-
     return {
         type:"commentac",
+        payload:param
+    };
+
+}
+export const singlecommentAction=(param)=>{
+
+    return {
+        type:"singlecommentac",
         payload:param
     };
 

@@ -1,10 +1,10 @@
 
-import React,{useState,useEffect} from 'react';
+import React,{useEffect} from 'react';
 import Modal from '@material-ui/core/Modal';
 import '../css/App.css';
 import {auth} from '../firebaseConfig';
 import ModalBody from './ModalBody';
-import { Button, Input } from '@material-ui/core';
+import { Button} from '@material-ui/core';
 import {emailAction,usernameAction,passwordAction,openAction,openSignInAction,userAction} from '../actions';
 import {connect} from 'react-redux';
 
