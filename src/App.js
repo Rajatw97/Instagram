@@ -25,14 +25,14 @@ const App=(props)=>{
               
               <Modal />
              <div className="all_posts">
-                 <div className="posts-left">
+                 <div className="posts-left" style={{width:"75%"}}>
                           
                  {props.posts.post?(props.posts.post.map(({id,post})=>(
-                <Post key={id} postId={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
+                <Post loggedinUser={props.posts.user} key={id} postId={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
                     )
                     )):console.log("posts unavailable")}  
             </div>
-            <div className="imbed-right">
+            <div className="imbed-right" style={{width:"25%"}}>
             <InstagramEmbed
                 url='https://instagr.am/p/Zw9o4/'
                 maxWidth={320}
@@ -50,7 +50,7 @@ const App=(props)=>{
 
              {props.posts.user?(
               <ImageUpload  uname={props.posts.user.displayName}/>
-              ):(<h3>Sorry, u need to login to create a new post</h3>)
+              ):(<h3 style={{alignItems:'center'}}>Sorry, u need to login to create a new post</h3>)
               }
        </div>);
 }

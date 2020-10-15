@@ -2,16 +2,20 @@
     margin:0
 }
 .app{
-    background-color:#fafafa;
+    /* background-color:#fafafa; */
+    color: black;
     height:100vh;
 }
 .app_header{
-    z-index: 0;
+    position: sticky;
+    top:0;
+    z-index: 1;
     object-fit: contain;
     background-color: white;
-    padding:20px;
+    padding:2vh;
     border-bottom: 1px solid lightgray;
 }
+
 .button_modal{
     float:right;
     z-index:50;
@@ -19,10 +23,11 @@
     
  }
  .imbed-right{
-     margin-left: 20px;
+     margin-left: -20%;
+     margin-top: 2.3%;
  }
  .all_posts{
-     padding:20px;
+     padding:2%;
      display:flex;
      justify-content: center;
  }
@@ -32,7 +37,8 @@
     flex-direction: column;
    
 }
-
-    .app_headerImage{
-        object-fit: contain;
+    .button_sign{
+     position: fixed;
+     right:5px;
+     z-index:2;
     }

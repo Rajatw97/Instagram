@@ -80,7 +80,7 @@ const SimpleModal=(props)=> {
     
 
   return (
-    <div>
+    <div className="button_sign">
       {props.posts.user?
     <Button  className="button_modal" style={{marginTop:"-50px"}} onClick={logoutSet}>Log out</Button>
   :(<div className="app_loginContainer">
