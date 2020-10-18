@@ -1,7 +1,7 @@
 import React, { useEffect , useState} from 'react';
 import '../css/Post.css';
 import Avatar from '@material-ui/core/Avatar';
-import {commentAction,singlecommentAction} from '../actions';
+import {commentAction,singlecommentAction,likeAction} from '../actions';
 import {connect} from 'react-redux';
 import {db} from '../firebaseConfig';
 import firebase from 'firebase';
@@ -9,6 +9,7 @@ import firebase from 'firebase';
 const Post=(props)=> {
 
     const [commentsnew,setcommentsnew]=useState([]);
+    const [likenew,setlikenew]=useState(props.postlikes);
 
     const postid=props.postId;
     let unsubscribe;
@@ -29,6 +30,8 @@ const Post=(props)=> {
                     id:doc.id,
                      comm:doc.data()})))
                   })
+
+            // props.likeAction(props.postlikes);
             }       
         
         return ()=>{
@@ -41,7 +44,6 @@ const Post=(props)=> {
         db
         .collection('posts')
         .doc(props.postId)
-        .collection('comments')
         .add({
             text:props.comments.singlecomment,
             username:props.loggedinUser.displayName,
@@ -50,6 +52,20 @@ const Post=(props)=> {
         props.singlecommentAction('');
 
     }
+
+    const likeFunctionaity=()=>{
+        if(props.loggedinUser){
+        db
+        .collection('posts')
+        .doc(props.postId)
+        .update({
+            like:likenew+1
+            });
+        setlikenew(likenew+1) }
+        else {
+            alert("Please login to like the post!!!")
+        }
+    }
     return (
         <div className="post">
             <div className="post_header">
@@ -57,6 +73,7 @@ const Post=(props)=> {
                 <p>{props.username}</p> 
             </div>
             <img className="post_image" src={props.imageUrl} alt="b" />  
+            <i className="far fa-heart fa-lg like_icon" onClick={likeFunctionaity}> {props.postlikes} likes</i>
             <div className="post_text"><p ><strong>{props.username} : </strong> {props.caption}</p></div>
             
                <div className="post_cmnt">
@@ -96,4 +113,4 @@ const mapStateToProps=state=>{
     }
 };
 
-export default connect(mapStateToProps,{commentAction,singlecommentAction})(Post);
+export default connect(mapStateToProps,{commentAction,singlecommentAction,likeAction})(Post);

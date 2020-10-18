@@ -1,7 +1,7 @@
 import { Button } from '@material-ui/core';
 import React from 'react';
 import {connect} from 'react-redux';
-import {postAction,progressAction,imageAction,captionAction} from '../actions';
+import {postAction,progressAction,imageAction,captionAction,likeAction} from '../actions';
 import {db,storage} from '../firebaseConfig';
 import firebase from 'firebase';
 import '../css/ImageUpload.css';
@@ -38,7 +38,8 @@ const ImageUpload=(props)=>{
                         timestamp:firebase.firestore.FieldValue.serverTimestamp(),
                         caption:props.posts.caption,
                         imageUrl:url,
-                        username:props.uname
+                        username:props.uname,
+                        like:0
                          });
                        
                         props.progressAction(0);
@@ -62,4 +63,4 @@ const mapStateToProps=(state)=>{
     return { posts:state}
 }
 
-export default connect(mapStateToProps,{postAction,progressAction,imageAction,captionAction}) (ImageUpload);
+export default connect(mapStateToProps,{postAction,progressAction,imageAction,captionAction,likeAction}) (ImageUpload);

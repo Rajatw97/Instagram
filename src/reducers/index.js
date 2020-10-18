@@ -10,7 +10,8 @@ const initialState={
     progressbar:0,
     image:'',
     comment:[],
-    singlecomment:''
+    singlecomment:'',
+    like:0
 };
 
 export default (state=initialState,action)=>{
@@ -41,7 +42,10 @@ export default (state=initialState,action)=>{
             return  {...state,comment:action.payload }  
             break;}   
         case 'singlecommentac': 
-            return  {...state,singlecomment:action.payload }         
+            return  {...state,singlecomment:action.payload }  
+        case 'likeac': 
+            console.log("inside reducer: ",action.payload)
+            return  {...state,like:action.payload }                  
         default: return state
   }
 

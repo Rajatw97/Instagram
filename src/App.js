@@ -28,7 +28,7 @@ const App=(props)=>{
                  <div className="posts-left" style={{width:"75%"}}>
                           
                  {props.posts.post?(props.posts.post.map(({id,post})=>(
-                <Post loggedinUser={props.posts.user} key={id} postId={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
+                <Post loggedinUser={props.posts.user} key={id} postId={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} postlikes={post.like} />
                     )
                     )):console.log("posts unavailable")}  
             </div>

@@ -94,3 +94,11 @@ export const singlecommentAction=(param)=>{
     };
 
 }
+export const likeAction=(param)=>{
+        console.log("inside like: ",param)
+    return {
+        type:"likeac",
+        payload:param
+    };
+
+}
