@@ -11,7 +11,9 @@ const initialState={
     image:'',
     comment:[],
     singlecomment:'',
-    like:0
+    like:0,
+    featuredpost:[],
+    userprofile:[]
 };
 
 export default (state=initialState,action)=>{
@@ -44,8 +46,11 @@ export default (state=initialState,action)=>{
         case 'singlecommentac': 
             return  {...state,singlecomment:action.payload }  
         case 'likeac': 
-            console.log("inside reducer: ",action.payload)
-            return  {...state,like:action.payload }                  
+            return  {...state,like:action.payload }     
+        case 'featuredpostac': 
+            return  {...state,featuredpost:action.payload }   
+        case 'userprofileac': 
+            return  {...state,userprofile:action.payload }                          
         default: return state
   }
 

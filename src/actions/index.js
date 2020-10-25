@@ -54,6 +54,15 @@ export const postAction=(param)=>{
     };
 
 }
+export const userprofileAction=(param)=>{
+
+    return {
+        type:"userprofileac",
+        payload:param
+    };
+
+}
+
 
 export const captionAction=(param)=>{
 
@@ -95,10 +104,17 @@ export const singlecommentAction=(param)=>{
 
 }
 export const likeAction=(param)=>{
-        console.log("inside like: ",param)
     return {
         type:"likeac",
         payload:param
     };
+
+}
+export const featuredPostAction=(param)=>{
+    console.log("inside like: ",param)
+return {
+    type:"featuredpostac",
+    payload:param
+};
 
 }

@@ -1,17 +1,28 @@
 .imageupload{
     display:flex;
     flex-direction: column;
-    width:60%;
-    margin-left:auto;
+    width:50%;
+    margin-left:20%;
     margin-right:auto;
     margin-bottom:2%;
+    border:1px solid lightgray;
+    border-radius: 1%;
+    padding:2% 1% 1% 1%;
 }
 
 .imageupload_progress{
-    width:100%;
+    /* width:80%; */
     height:2em;
+    /* text-align: center; */
    
 }
+
 .iuitem{
     margin-bottom:2%;
+    width:100%;
+    /* margin-left: 12%; */
+}
+.uploadbtn{
+    width:20%;
+    /* margin-left: auto; */
 }
