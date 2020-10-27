@@ -22,16 +22,10 @@ const Post=(props)=> {
              .collection('comments')
              .orderBy('timestamp','desc')
              .onSnapshot(snapshot=>{
-            //  props.commentAction(snapshot.docs.map(doc=>({
-            //     id:doc.id,
-            //     comm:doc.data()})))
-            //  })
-            setcommentsnew(snapshot.docs.map(doc=>({
+                setcommentsnew(snapshot.docs.map(doc=>({
                     id:doc.id,
                      comm:doc.data()})))
                   })
-
-            // props.likeAction(props.postlikes);
             }       
         
         return ()=>{

@@ -13,13 +13,16 @@ const initialState={
     singlecomment:'',
     like:0,
     featuredpost:[],
-    userprofile:[]
+    userprofile:{},
+    userimg:''
 };
 
 export default (state=initialState,action)=>{
 
     switch(action.type){
-
+        
+        case 'userprofileac': 
+            return  {...state,userprofile:action.payload }      
         case 'usernameac': 
             return  {...state,username:action.payload }  
         case 'emailac': 
@@ -49,8 +52,9 @@ export default (state=initialState,action)=>{
             return  {...state,like:action.payload }     
         case 'featuredpostac': 
             return  {...state,featuredpost:action.payload }   
-        case 'userprofileac': 
-            return  {...state,userprofile:action.payload }                          
+        case 'userimgac': 
+            return  {...state,userimg:action.payload }       
+                         
         default: return state
   }
 

@@ -2,7 +2,23 @@
     z-index:1;
     float:right;
     position: sticky;
-  
+  }
+
+.user_info{
+    width:60%;
+    text-align: center;
+
+}  
+.user_img{
+    padding-top: 5%;
+    padding-left: 5%;
+
+}
+.img_uname{
+   text-align:left;
+}
+.edit_icon{
+    align: left;
 }
 
 
