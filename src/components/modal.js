@@ -8,6 +8,7 @@ import { Button} from '@material-ui/core';
 import {emailAction,usernameAction,passwordAction,openAction,openSignInAction,userAction} from '../actions';
 import {connect} from 'react-redux';
 import history from '../History';
+import Avatar from '@material-ui/core/Avatar';
 
 const SimpleModal=(props)=> {
 
@@ -32,11 +33,12 @@ const SimpleModal=(props)=> {
     auth.createUserWithEmailAndPassword(props.posts.email,props.posts.password)
     .then(authUser=>{
       console.log(authUser);
-      db.collection('users').doc(authUser.user.uid).set({
-        followers:[],
-        following:[],
-        bio:''
-      })
+      // db.collection('users').doc(authUser.user.uid).set({
+      //   followers:[],
+      //   following:[],
+      //   bio:'',
+      //   imageUrl:''
+      // })
       return authUser.user.updateProfile({displayName:props.posts.username});
     })
     .catch((error)=>alert(error.message));
@@ -66,11 +68,11 @@ const SimpleModal=(props)=> {
     props.openSignInAction(false);
   }
 
-  const profileUser=()=>{
-    console.log("inside user func");
-    history.push('/user');
+  // const profileUser=()=>{
+  //   console.log("inside user func");
+  //   history.push('/user');
     
-  }
+  // }
 
 
        
@@ -100,7 +102,10 @@ const SimpleModal=(props)=> {
       {props.posts.user?
         (<div className="app_loggedinContainer">
         <Button  className="button_modal" style={{marginTop:"-50px",marginRight:"90px"}} onClick={logoutSet}>Log out</Button>
-        <Button  className="button_modal" style={{marginTop:"-50px"}} onClick={profileUser}>Profile</Button>
+       {console.log(props.posts.user.displayName)}
+        <Avatar  className="button_modal" style={{marginTop:"-50px", marginRight:"20px",border:"none",backgroundColor:"darkmagenta"}} alt={props.posts.user.displayName} src="/static/images/avatar/1.jpg" />
+ 
+        {/* <Button    onClick={profileUser}>Profile</Button> */}
         </div>)
         :(<div className="app_loginContainer">
           <Button className="button_modal"  style={{marginTop:"-50px",marginRight:"90px"}} onClick={()=>props.openSignInAction(true)}>Sign In</Button>

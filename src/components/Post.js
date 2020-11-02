@@ -63,7 +63,7 @@ const Post=(props)=> {
     return (
         <div className="post">
             <div className="post_header">
-                <Avatar  className="post_avatar" alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                <Avatar  className="post_avatar" alt={props.username} src="/static/images/avatar/1.jpg" />
                 <p>{props.username}</p> 
             </div>
             <img className="post_image" src={props.imageUrl} alt="b" />  

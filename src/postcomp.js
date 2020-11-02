@@ -33,7 +33,7 @@ const Postcomp=(props)=>{
                  <div>    
                     {props.posts.user?(
                     <ImageUpload  uname={props.posts.user.displayName}/>
-                    ):(<h3 style={{textAlign:"center"}} >Sorry, u need to login to create a new post</h3>)
+                    ):(<h3 style={{textAlign:"center"}} >Want to add something new? Login first!</h3>)
                     }
               </div>
 
@@ -47,7 +47,9 @@ const Postcomp=(props)=>{
             <div className="featured_posts" style={{width:"30%"}}>
                 <h3><strong>Featured posts: </strong></h3>
             {props.posts.featuredpost.map(({id,featuredpost})=>{  
-                        return (<img className="featuredpost_image" key={id} src={featuredpost.imageUrl} alt="b" />)
+                 console.log(featuredpost)
+                        return (<div key={id} className="like_posts"><img className="featuredpost_image" src={featuredpost.imageUrl} alt="b" />
+                                <p>Likes:{featuredpost.like} </p> </div>)
             }
              )
              }

@@ -54,5 +54,7 @@
 .featuredpost_image{
     height:25%;
     width:75%;
-    padding-bottom: 15%;
+}
+.like_posts{
+    padding-bottom:10%;
 }

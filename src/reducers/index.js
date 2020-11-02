@@ -14,7 +14,8 @@ const initialState={
     like:0,
     featuredpost:[],
     userprofile:{},
-    userimg:''
+    userimg:'',
+    
 };
 
 export default (state=initialState,action)=>{
@@ -52,8 +53,10 @@ export default (state=initialState,action)=>{
             return  {...state,like:action.payload }     
         case 'featuredpostac': 
             return  {...state,featuredpost:action.payload }   
-        case 'userimgac': 
-            return  {...state,userimg:action.payload }       
+        case 'userimgac': {
+            console.log("inside reducer: "+action.payload);
+            return  {...state,userimg:action.payload }     
+        }  
                          
         default: return state
   }

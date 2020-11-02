@@ -62,13 +62,13 @@ export const userprofileAction=(param)=>{
 
 }
 export const userimgAction=(param)=>{
+    console.log("inside action: "+param);
     return {
         type:"userimgac",
         payload:param
     };
 
 }
-
 
 export const captionAction=(param)=>{
 
