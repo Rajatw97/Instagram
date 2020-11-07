@@ -57,7 +57,7 @@ const ImageUpload=(props)=>{
         </div>
          <label htmlFor="file"><span className='fas fa-upload fa-2x' style={{marginLeft:"2%",marginTop:"2%"}}></span></label>
          <input className="iuitem" id="file" type="file" onChange={handleChange} style={{display:'none'}}></input> 
-        <Button onClick={handleUpload} className="ui primary button uploadbtn" style={{marginLeft:'auto'}}> Upload </Button>
+        <Button onClick={handleUpload} className="ui primary button uploadbtn" style={{marginLeft:'auto', marginBottom: '4px'}}> Upload </Button>
 
     </div>
     );
