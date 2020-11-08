@@ -101,11 +101,9 @@ const SimpleModal=(props)=> {
     <div className="button_sign">
       {props.posts.user?
         (<div className="app_loggedinContainer">
-        <Button  className="button_modal" style={{marginTop:"-50px",marginRight:"90px"}} onClick={logoutSet}>Log out</Button>
+        <Button  className="button_modal btn_logout" onClick={logoutSet}>Log out</Button>
        {console.log(props.posts.user.displayName)}
-        <Avatar  className="button_modal" style={{marginTop:"-50px", marginRight:"20px",border:"none",backgroundColor:"darkmagenta"}} alt={props.posts.user.displayName} src="/static/images/avatar/1.jpg" />
- 
-        {/* <Button    onClick={profileUser}>Profile</Button> */}
+        <Avatar  className="button_modal btn_avatar" alt={props.posts.user.displayName} src="/static/images/avatar/1.jpg" />
         </div>)
         :(<div className="app_loginContainer">
           <Button className="button_modal"  style={{marginTop:"-50px",marginRight:"90px"}} onClick={()=>props.openSignInAction(true)}>Sign In</Button>

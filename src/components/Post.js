@@ -38,6 +38,7 @@ const Post=(props)=> {
         db
         .collection('posts')
         .doc(props.postId)
+        .collection('comments')
         .add({
             text:props.comments.singlecomment,
             username:props.loggedinUser.displayName,
@@ -70,11 +71,11 @@ const Post=(props)=> {
             <i className="far fa-heart fa-lg like_icon" onClick={likeFunctionaity}> {props.postlikes} likes</i>
             <div className="post_text"><p ><strong>{props.username} : </strong> {props.caption}</p></div>
             
-               <div className="post_cmnt">
+               
                     {commentsnew && commentsnew.map(({id, comm})=>{ 
-                  return <div key={id}><strong>{comm.username}</strong> : {comm.text}</div>
+                  return <div  className="post_cmnt" key={id}><strong>{comm.username}</strong> : {comm.text}</div>
                      }) }
-                </div>
+               
             
              {props.loggedinUser &&(
                   <form className="post_comment">

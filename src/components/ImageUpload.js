@@ -53,11 +53,11 @@ const ImageUpload=(props)=>{
             <h3>Create a post:</h3>
          <progress className="imageupload_progress iuitem" value={props.posts.progressbar} max="100" />
         <div className="ui input mini">
-        <input className="iuitem" type="text" placeholder="Enter a caption" value={props.posts.caption} onChange={event=>props.captionAction(event.target.value)}/>
+        <input className="iuitem input_cmnt" type="text" placeholder="Enter a caption" value={props.posts.caption} onChange={event=>props.captionAction(event.target.value)}/>
         </div>
          <label htmlFor="file"><span className='fas fa-upload fa-2x' style={{marginLeft:"2%",marginTop:"2%"}}></span></label>
          <input className="iuitem" id="file" type="file" onChange={handleChange} style={{display:'none'}}></input> 
-        <Button onClick={handleUpload} className="ui primary button uploadbtn" style={{marginLeft:'auto', marginBottom: '4px'}}> Upload </Button>
+        <Button onClick={handleUpload} className="ui primary button uploadbtn" style={{marginLeft:'auto', marginBottom: '4px'}}><p className="upload_lbl">Upload</p> </Button>
 
     </div>
     );

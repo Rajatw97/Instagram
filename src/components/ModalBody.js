@@ -8,8 +8,8 @@ function rand() {
   }
   
   function getModalStyle() {
-    const top = 50 + rand();
-    const left = 50 + rand();
+    const top = 50;
+    const left = 50;
   
     return {
       top: `${top}%`,
@@ -21,9 +21,10 @@ function rand() {
   const useStyles = makeStyles((theme) => ({
     paper: {
       position: 'absolute',
-      width: 400,
+      width: 250,
+      // height:185,
       backgroundColor: theme.palette.background.paper,
-      border: '2px solid #000',
+      // border: '2px solid #000',
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
     },
@@ -37,7 +38,7 @@ export default React.forwardRef((props, ref) =>{
     const [modalStyle] = React.useState(getModalStyle);
     
 
-return(
+return( <div className="modal_body">
         <div style={modalStyle} className={classes.paper}>
         <form className="form_singup">
         <center>
@@ -68,6 +69,7 @@ return(
           
         <Button type="submit" onClick={(event)=>props.click(event)} >{props.text}</Button>
         </form>
+        </div>
         </div>
       );
 
