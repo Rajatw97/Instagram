@@ -1,4 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">Welcome to Instagram Clone 👋</h1>
+<p>
+ 
+</p>
+ A React based web application
+
+### 🏠 [Homepage](https://instagram-react-d38df.firebaseapp.com)
+
 
 ## Available Scripts
 
@@ -15,7 +22,12 @@ Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 Your app is ready to be deployed!
 
-### Deployment
+## Author
 
-This app is currently deployed at:https://instagram-react-d38df.firebaseapp.com
+👤 **Rajat Wadhwa**
+
+* Github: [@Rajatw97](https://github.com/Rajatw97)
+* LinkedIn: [@rajat-wadhwa-a21326163](https://linkedin.com/in/rajat-wadhwa-a21326163)
+
+
 
